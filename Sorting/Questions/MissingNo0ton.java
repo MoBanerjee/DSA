@@ -1,7 +1,8 @@
 package Algorithms;
 
 import java.util.Arrays;
-
+// https://leetcode.com/problems/missing-number/
+// Amazon Question
 public class MissingNo0ton {
 	static int missingno(int[]arr) {
 		int i=0;
