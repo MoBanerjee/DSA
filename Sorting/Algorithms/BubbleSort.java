@@ -3,6 +3,7 @@ package Algorithms;
 import java.util.Arrays;
 //Space complexity= O(1)..inplace sorting algo cz no extra space reqd for copying array and likewise stuff
 // Best case tc= O(n) and worst case tc= O(nsqr)
+//Average case tc also O(nsqr)
 public class BubbleSort {
 static void bubblesort(int []arr) {
 	int n=arr.length;
