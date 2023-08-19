@@ -1,7 +1,8 @@
 package Algorithms;
 
 import java.util.*;
-
+// https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+// Asked in Google
 public class MissingNoRepetitive1ton {
 	static List<Integer> missingno2(int[]arr) {
 		ArrayList<Integer>result=new ArrayList<>();
