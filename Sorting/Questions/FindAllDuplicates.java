@@ -1,5 +1,6 @@
 package Questions;
 import java.util.*;
+// https://leetcode.com/problems/find-all-duplicates-in-an-array/
 public class FindAllDuplicates {
 	static List<Integer> findallduplicates(int[]arr) {
 		ArrayList<Integer> result=new ArrayList<>();
