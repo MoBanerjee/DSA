@@ -1,6 +1,5 @@
 package Questions;
 import java.util.*;
-// https://leetcode.com/problems/find-all-duplicates-in-an-array/
 public class FindAllDuplicates {
 	static List<Integer> findallduplicates(int[]arr) {
 		ArrayList<Integer> result=new ArrayList<>();
@@ -12,16 +11,18 @@ public class FindAllDuplicates {
 				arr[arr[i]-1]=arr[i];
 				arr[i]=temp;
 			}else{
-				result.add(arr[i]);
 				i++;
 				}
 			}
 			else {i++;}
 		}
+		for(int h=0;h<arr.length;h++) {
+			if(arr[h]!=h+1)result.add(arr[h]);
+		}
 		return result;
 	}
 public static void main(String[] args) {
-	int[]arr= {1,1,4,4,5,7,5};
+	int[]arr= {4,3,2,7,8,2,3,1};
 	System.out.println(findallduplicates(arr));
 }
 
