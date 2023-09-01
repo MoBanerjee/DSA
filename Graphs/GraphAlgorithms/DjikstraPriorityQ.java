@@ -47,7 +47,7 @@ public class DjikstraPriorityQ {
 		
 	}
 	public static int[] djikstra(int V, ArrayList<ArrayList<ArrayList<Integer>>> adjl,int S) {
-		System.out.println("hi");
+		
 		int[]dist=new int[V];
 		for(int i=0;i<V;i++)dist[i]=(int)(1e9);
 		dist[S]=0;
