@@ -47,13 +47,14 @@ int countWordsStartingWith(String findpre) {
 void erase(String deletethis) {
 	NodeCountVersion temp=root;
 	for(int i=0;i<deletethis.length();i++) {
-//		if(temp.containsKey(deletethis.charAt(i))) {
-//			temp=temp.get(deletethis.charAt(i));
-//			temp.deccp();
-//		}
-		
-		temp=temp.get(deletethis.charAt(i));
+		if(temp.containsKey(deletethis.charAt(i))) {
+			temp=temp.get(deletethis.charAt(i));
 		temp.deccp();
+	}
+		else {return;}
+		
+//		temp=temp.get(deletethis.charAt(i));
+//		temp.deccp();
 	}
 temp.decew();
 	
@@ -81,5 +82,11 @@ public static void main(String args[]) {
 			  ("ap"));
 	  T.erase("kert");
 	  T.insert("kert");
+	  T.insert("kertcake");
+	  T.insert("ke");
+	  T.erase("kerts");
+	  System.out.println("Count Words equal to "+"ke"+" "+T.countWordsEqualTo("ke"));
+	  System.out.println("Count Words Starting With "+"k"+" "+T.countWordsStartingWith
+			  ("k"));
 	}
 }
