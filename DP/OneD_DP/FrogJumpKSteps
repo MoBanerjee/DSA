@@ -10,6 +10,7 @@ public class Solution {
                     int step=dp[i-j]+Math.abs(height[i]-height[i-j]);
                     minstep=Math.min(minstep,step);
                 }
+                else break;
             }
             dp[i]=minstep;
         }
