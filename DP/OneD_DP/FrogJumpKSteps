@@ -45,6 +45,30 @@ public class Solution {
         Arrays.fill(dp,-1);
         return fn(n-1,k,height,dp);
     }
+
+}
+
+Space optimisation
+import java.util.ArrayList;
+import java.util.Collections;
+public class Solution {
+    public static int minimizeCost(int n, int k, int []height){
+        ArrayList<Integer> subs=new ArrayList<>(Collections.nCopies(k,Integer.MAX_VALUE));
+        subs.set(0, 0);
+
+        for(int i=1;i<n;i++){
+            int minstep=Integer.MAX_VALUE;
+            for(int j=1;j<=k;j++){
+                if(i-j>=0){
+                    int step=subs.get((i-j)%k)+Math.abs(height[i]-height[i-j]);
+                    minstep=Math.min(minstep,step);
+                }
+                else break;
+            }
+            subs.set(i%k,minstep);
+        }
+        return subs.get((n-1)%k);
+    }
 }
 
 Question-: https://www.codingninjas.com/studio/problems/minimal-cost_8180930?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
