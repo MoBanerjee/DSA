@@ -17,4 +17,33 @@ public class Solution {
     }
 }
 
+Memoization
+import java.util.Arrays;
+public class Solution {
+    public static int fn(int index, int k, int[]height, int []dp){
+        if(index==0){
+            dp[index]=0;
+            return 0;
+        }
+        if(dp[index]!=-1)return dp[index];
+        
+        int minstep=Integer.MAX_VALUE;
+       
+        for(int i=1;i<=k;i++){
+            if((index-i)>=0){
+                    int step=fn(index-i,k,height,dp)+Math.abs(height[index]-height[index-i]);
+                    minstep=Math.min(minstep,step);
+            }
+            else break;
+
+        }
+    return dp[index]=minstep;
+    }
+    public static int minimizeCost(int n, int k, int []height){
+        int[]dp=new int[n];
+        Arrays.fill(dp,-1);
+        return fn(n-1,k,height,dp);
+    }
+}
+
 Question-: https://www.codingninjas.com/studio/problems/minimal-cost_8180930?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
