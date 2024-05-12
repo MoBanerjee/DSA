@@ -1,0 +1,21 @@
+class Solution {
+    public int minAddToMakeValid(String s) {
+        Stack <Character> sc=new Stack <Character> ();
+        char[] arr=s.toCharArray();
+        for(char it:arr){
+            if(it=='('){
+                sc.push(it);
+            }
+            else if(!sc.isEmpty() && sc.peek()=='('){
+                sc.pop();
+            }
+            else{
+                sc.push(it);
+            }
+        }
+        int a=sc.size();
+        return a;
+    }
+}
+
+https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
