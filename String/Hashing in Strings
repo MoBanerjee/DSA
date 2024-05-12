@@ -1,0 +1,19 @@
+class Solution {
+    public int findMatching(String text, String pat) {
+        HashMap<String,Integer> hm=new HashMap<String,Integer>();
+        for (int i=0;i<text.length();i++){
+            StringBuilder s=new StringBuilder("");
+            for(int j=i;j<text.length();j++){
+                s.append(text.charAt(j));
+                if(!hm.containsKey(s.toString())){
+                    hm.put(s.toString(),i);
+                }
+            }
+        }
+
+        if(hm.containsKey(pat))return hm.get(pat);
+        else return -1;
+    }
+}
+
+https://www.geeksforgeeks.org/problems/index-of-the-first-occurrence-of-pattern-in-a-text/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=index-of-the-first-occurrence-of-pattern-in-a-text%2F
