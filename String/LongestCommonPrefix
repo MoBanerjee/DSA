@@ -1,0 +1,10 @@
+public String longestCommonPrefix(String[] strs) {
+        String ini=strs[0];
+for(int i=1;i<strs.length;i++){
+    while(strs[i].indexOf(ini)!=0){
+        ini=ini.substring(0,ini.length()-1);
+    }
+    if(ini=="")break;
+}
+return ini;
+    }
