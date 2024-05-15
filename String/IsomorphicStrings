@@ -1,0 +1,27 @@
+my soln
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s==t)return true;
+        HashMap<Character,Character> left=new HashMap();
+        HashMap<Character,Character> right=new HashMap();
+        int n =s.length();
+        for(int i=0;i<n;i++){
+            char l=s.charAt(i);
+            char r=t.charAt(i);
+            if(left.get(l)==null && right.get(r)==null){
+                left.put(l,r);
+                right.put(r,l);
+            }
+            else if(left.get(l)!=null){
+                if(r==left.get(l))continue;
+                else return false;
+            }
+            else{
+                if(l==right.get(r))continue;
+                else return false;
+            }
+        }
+        return true;
+    }
+}
+https://leetcode.com/problems/isomorphic-strings/description/
