@@ -8,3 +8,5 @@ for(int i=1;i<strs.length;i++){
 }
 return ini;
     }
+
+https://leetcode.com/problems/longest-common-prefix/description/
