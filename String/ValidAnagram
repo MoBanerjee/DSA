@@ -49,6 +49,7 @@ for(int i=0;i<s.length();i++){
 }
 for(int j=0;j<s.length();j++){
     arr[t.charAt(j)-'a']-=1;
+if(arr[t.charAt(j)-'a']<0)return false;
 }
 for(int y:arr){
     if (y!=0)return false;
