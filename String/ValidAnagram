@@ -14,4 +14,30 @@ class Solution {
     }
 }
 
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int n=s.length();
+        int m=t.length();
+        if(n!=m)return false;
+HashMap<Character,Integer> hm= new HashMap<>();
+
+for(int i=0;i<n;i++){
+    char it=s.charAt(i);
+    if(hm.get(it)==null)hm.put(it,1);
+    else hm.put(it,hm.get(it)+1);
+
+}
+for(int j=0;j<n;j++){
+    char y=t.charAt(j);
+    if(hm.get(y)==null) return false;
+    else {
+        hm.put(y,hm.get(y)-1);
+        if(hm.get(y)==0)hm.remove(y);
+    }
+}
+return true;
+
+    }
+}
+
 https://leetcode.com/problems/valid-anagram/
