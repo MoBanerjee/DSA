@@ -1,0 +1,48 @@
+class Data{
+    int start;
+    int end;
+    int posn;
+    Data (int s, int e, int p){
+        this.start=s;
+        this.end=e;
+        this.posn=p;
+    }
+}
+class datacom implements Comparator<Data>{
+    public int compare(Data d1, Data d2){
+        if(d1.end<d2.end)return -1;
+        else return 1;
+        
+    }
+}
+class Solution {
+    // Function to find the maximum number of meetings that can
+    // be performed in a meeting room.
+    public int maxMeetings(int n, int start[], int end[]) {
+        // add your code here
+       
+        Data arr[]=new Data[n];
+        for(int i=0;i<n;i++){
+          arr[i]=new Data(start[i],end[i],i+1);
+
+        }
+        Arrays.sort(arr,new datacom());
+        ArrayList<Integer> holder=new ArrayList<Integer>();
+        int curr=1;
+        holder.add(arr[0].posn);
+        int free=arr[0].end;
+       
+        for(int j=1;j<n;j++){
+           
+            if(arr[j].start>free){
+                curr++;
+                holder.add(arr[j].posn);
+                free=arr[j].end;
+            }
+            
+        }
+        return curr;
+    }
+}
+
+https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
