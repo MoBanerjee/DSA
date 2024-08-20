@@ -1,0 +1,40 @@
+/*
+class Item {
+    int value, weight;
+    Item(int x, int y){
+        this.value = x;
+        this.weight = y;
+    }
+}
+*/
+class itemcomp implements Comparator<Item>{
+    
+    public int compare(Item a, Item b){
+        double unit1=((double)a.value)/(double)a.weight;
+        double unit2=((double)b.value)/(double)b.weight;
+        if(unit1<unit2)return 1;
+        else if(unit1>unit2) return -1;
+        else return 0;
+    }
+}
+class Solution {
+  
+    // Function to get the maximum total value in the knapsack.
+    double fractionalKnapsack(int w, Item arr[], int n) {
+        // Your code here
+        double value=0;
+        Arrays.sort(arr,new itemcomp());
+        for(int i=0;i<n;i++){
+            if(arr[i].weight<=w){
+                w-=arr[i].weight;
+                value+=arr[i].value;
+            }
+            else{
+                double unit=((double)arr[i].value)/(double)arr[i].weight;
+                value+=((double)w)*unit;
+                break;
+            }
+        }
+        return value;
+    }
+};
