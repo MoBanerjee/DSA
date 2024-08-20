@@ -1,0 +1,19 @@
+class Solution {
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int left=0,right=0;
+        while(right<s.length && left<g.length){
+            if(g[left]<=s[right]){
+                left++;
+                right++;
+            }
+            else {
+                right++;
+            }
+        }
+        return left;
+    }
+}
+
+https://leetcode.com/problems/assign-cookies/
