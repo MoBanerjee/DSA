@@ -1,0 +1,25 @@
+class Solution {
+    public int longestPalindrome(String s) {
+        Map<Character,Integer> map= new HashMap<>();
+        for(char c : s.toCharArray()){
+            if(map.get(c)==null)map.put(c,1);
+            else map.put(c,map.get(c)+1);
+        }
+        ArrayList<Integer> temp=new ArrayList<>();
+        for (int i :map.values()){
+            temp.add(i);
+        }
+
+        Boolean b=false;
+        int length=0;
+        for(int j : temp){
+            length+=Math.floorDiv(j, 2)*2;
+            if(j%2!=0)b=true;
+
+        }
+        if(b)length=length+1;
+        return length;
+    }
+}
+
+https://leetcode.com/problems/longest-palindrome/?envType=problem-list-v2&envId=greedy&difficulty=EASY
