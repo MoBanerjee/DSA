@@ -1,0 +1,16 @@
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> vec;
+        if(root==NULL){
+            return vec;
+        }
+        vec.push_back(root->val);
+        vector<int> vecleft=preorderTraversal(root->left);
+        vec.insert(vec.end(),vecleft.begin(),vecleft.end());
+        vector<int> vecright=preorderTraversal(root->right);
+        vec.insert(vec.end(),vecright.begin(),vecright.end());
+        return vec;
+    }
+};
+https://leetcode.com/problems/binary-tree-preorder-traversal/
