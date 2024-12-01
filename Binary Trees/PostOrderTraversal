@@ -1,0 +1,18 @@
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> vec;
+        if(root==NULL){
+            return vec;
+        }
+        
+        vector<int> vecleft=postorderTraversal(root->left);
+        vec.insert(vec.end(),vecleft.begin(),vecleft.end());
+        
+        vector<int> vecright=postorderTraversal(root->right);
+        vec.insert(vec.end(),vecright.begin(),vecright.end());
+        vec.push_back(root->val);
+        return vec;
+    }
+};
+https://leetcode.com/problems/binary-tree-postorder-traversal/
