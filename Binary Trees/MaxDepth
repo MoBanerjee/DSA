@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        int count=1;
+        queue<pair<TreeNode*,int>> q;
+        q.push(make_pair(root,1));
+        if(root==NULL)return 0;
+        while(!q.empty()){
+            TreeNode* temp=q.front().first;
+            int tempint=q.front().second;
+            q.pop();
+            if(temp->left!=NULL)q.push(make_pair(temp->left,tempint+1));
+            if(temp->right!=NULL)q.push(make_pair(temp->right,tempint+1));
+            if(temp->left!=NULL || temp->right!=NULL) count= tempint+1;
+
+        }
+        return count;
+    }
+};
