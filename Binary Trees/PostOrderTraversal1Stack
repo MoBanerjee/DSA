@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> answer;
+        stack<pair<TreeNode *,bool>> s1;
+        if(root==NULL)return answer;
+        s1.push(make_pair(root,false));
+        while(!s1.empty()){
+            TreeNode * temp=s1.top().first;
+            bool visited=s1.top().second;
+            if(visited==true || (temp->right==NULL && temp->left==NULL)){
+                answer.push_back(temp->val);
+                s1.pop();
+                continue;
+            }
+            s1.top().second=true;
+            if(temp->right!=NULL)s1.push(make_pair(temp->right,false));
+            if(temp->left!=NULL)s1.push(make_pair(temp->left,false));
+            
+            
+
+        }
+
+        return answer;
+    }
+};
